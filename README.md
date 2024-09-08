@@ -1,5 +1,6 @@
-## Object tagging Ceph RGW using CLI
-
+## Object tagging in Ceph S3 using CLI
+The Ceph S3 has feature to assign tags—custom key-value pairs—to various resources such as objects, buckets, and roles. This tagging feature allows users to organize resources according to their needs. 
+Once tagged, attribute-based access control (ABAC) can control access to these resources.
 ### Pre-requisites:
 Before you begin, ensure you have the following tools installed:
 - `s3cmd`
