@@ -7,8 +7,6 @@
 ## Create Bucket:
 `root@client-01:~# s3cmd mb s3://my-test-bucket`
 
- `Bucket 's3://my-test-bucket/' created`
-
 ## Upload Objects into the bucket
 `root@client-01:~# s3cmd put file-01.txt s3://my-test-bucket`
 
@@ -16,12 +14,12 @@
   1048576 of 1048576   100% in    0s    24.81 MB/s  done`
 
 ## Ensure no tag is assigned to the objects
-`root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.99.132:8001`
-
-`{
+```
+root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.99.132:8001
+{
     "TagSet": []
- }`
-
+}
+```
 ## Assign tag on objects
 `root@client-01:~# aws s3api put-object-tagging  --bucket my-test-bucket  --key file-01.txt  --tagging '{"TagSet": [{ "Key": "designation", "Value": "confidential" }]}' --endpoint-url http://192.168.99.132:8001`
 
