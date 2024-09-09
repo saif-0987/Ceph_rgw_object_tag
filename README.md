@@ -23,7 +23,7 @@ Substitute path/to/your/file with the path to your local file and `your-bucket-n
 
 ### Ensure no tag is assigned to the objects
 ```
-root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.99.132:8001
+root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.1.32:8001
 {
     "TagSet": []
 }
@@ -33,13 +33,13 @@ Replace `your-bucket-name` with your bucket name and `your-object-key` with the 
 ### Assign tag to objects
 To assign a tag to an object, use the following command:
 ```
-root@client-01:~# aws s3api put-object-tagging  --bucket my-test-bucket  --key file-01.txt  --tagging '{"TagSet": [{ "Key": "designation", "Value": "confidential" }]}' --endpoint-url http://192.168.99.132:8001
+root@client-01:~# aws s3api put-object-tagging  --bucket my-test-bucket  --key file-01.txt  --tagging '{"TagSet": [{ "Key": "designation", "Value": "confidential" }]}' --endpoint-url http://192.168.1.32:8001
 ```
 
 ### Verify that objects is now tagged 
 To verify that the object has been tagged, use:
 ```
-root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.99.132:8001
+root@client-01:~# aws s3api get-object-tagging --bucket my-test-bucket --key file-01.txt --endpoint-url http://192.168.1.32:8001
 
 {
     "TagSet": [
